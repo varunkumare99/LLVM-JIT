@@ -71,9 +71,6 @@ Function *FunctionAST::codegen() {
 		// Validate the generated code, checking for consistency.
 		verifyFunction(*TheFunction);
 
-		// Run the optimizer on the function.
-		Codegen::TheFPM->run(*TheFunction);
-
 		return TheFunction;
 	}
 

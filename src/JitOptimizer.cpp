@@ -20,22 +20,5 @@ namespace JITopt {
 
 		//Creat a new builder for the module
 		Codegen::Builder = std::make_unique<IRBuilder<>>(*Codegen::Thecontext);
-
-		//Pass manager to attach to the module
-		Codegen::TheFPM = std::make_unique<legacy::FunctionPassManager>(Codegen::TheModule.get());
-
-		// peephole and bit twiddling optimizations
-		Codegen::TheFPM->add(createInstructionCombiningPass());
-
-		//Reassociate expressions.
-		Codegen::TheFPM->add(createReassociatePass());
-
-		//Elimate Common sub expressions
-		Codegen::TheFPM->add(createGVNPass());
-
-		// Delete unreachable nodes in the control graph
-		Codegen::TheFPM->add(createCFGSimplificationPass());
-
-		Codegen::TheFPM->doInitialization();
 	}
 }

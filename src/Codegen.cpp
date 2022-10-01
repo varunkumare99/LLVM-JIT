@@ -40,7 +40,6 @@ namespace Codegen {
 	std::unique_ptr<IRBuilder<>> Builder;
 	std::unique_ptr<Module> TheModule;
 	std::map<std::string, Value*> NamedValues;
-	std::unique_ptr<legacy::FunctionPassManager> TheFPM;
 	std::map<std::pair<std::string, unsigned int>, std::unique_ptr<PrototypeAST>> FunctionProtos;
 	std::map<std::pair<std::string,unsigned int>, std::string> functionOverloadNameMap;
 	ExitOnError ExitOnErr;
